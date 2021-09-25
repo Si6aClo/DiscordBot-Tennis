@@ -1,4 +1,5 @@
-﻿using DiscordBotTeam.DAL;
+﻿using DiscordBotTeam.Core.Services.Items;
+using DiscordBotTeam.DAL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -14,7 +15,10 @@ namespace DiscordBotTeam
             {
                 options.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=RPGContext;Trusted_Connection=True;MultipleActiveResultSets=true",
                     x => x.MigrationsAssembly("DiscordBotTeam.DAL.Migrations"));
+                options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
             });
+
+            services.AddScoped<IItemService, ItemService>();
 
             var serviceProvider = services.BuildServiceProvider();
 

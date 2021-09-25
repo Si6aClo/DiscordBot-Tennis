@@ -7,6 +7,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using System;
+using DiscordBotTeam.Commands;
 
 namespace DiscordBotTeam
 {
@@ -42,10 +43,13 @@ namespace DiscordBotTeam
                 StringPrefixes = new string[] { configJson.Prefix },
                 EnableDms = false,
                 EnableMentionPrefix = true,
+                DmHelp = true,
                 Services = services
             };
 
             Commands = Client.UseCommandsNext(commandsConfig);
+
+            Commands.RegisterCommands<DbCommands>();
 
             Client.ConnectAsync();
         }

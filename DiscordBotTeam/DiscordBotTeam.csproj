@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DiscordBotTeam.Core\DiscordBotTeam.Core.csproj" />
     <ProjectReference Include="..\DiscordBotTeam.DAL.Migrations\DiscordBotTeam.DAL.Migrations.csproj" />
     <ProjectReference Include="..\DiscordBotTeam.DAL\DiscordBotTeam.DAL.csproj" />
   </ItemGroup>
